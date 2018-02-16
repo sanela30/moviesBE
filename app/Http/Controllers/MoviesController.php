@@ -15,7 +15,13 @@ class MoviesController extends Controller
      */
     public function index()
     {
-        return Movie::all();
+        $term = request()->input('term');
+        if ( $term) {
+            return Movie::search($term);
+        } else {
+            return Movie::all();
+        }
+
 
     }
 

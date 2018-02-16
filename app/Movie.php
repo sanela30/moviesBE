@@ -18,9 +18,10 @@ class Movie extends Model
 
       ];
 
-      public static function search($term)
+      public static function search($term,$skip, $take)
     {
-        return self::where('name', 'LIKE', '%'.$term.'%')->get();
+        return self::where('name', 'LIKE', '%'.$term.'%')->skip($skip)->take($take)->get();
+
     }
 
   

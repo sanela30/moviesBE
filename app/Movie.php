@@ -8,8 +8,14 @@ class Movie extends Model
 {
     public $timestamps = false;
 
+    protected $fillable = [
+        'name', 'director', 'imageUrl', 'duration', 'releaseDate', 'genres'
+    ];
+
+
     protected $casts = [
-        'genres' => 'json_encode'
+        'genres' => 'array'
+
       ];
   
 }
